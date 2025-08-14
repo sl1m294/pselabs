@@ -32,7 +32,7 @@
   }
 
   @media (min-width: var(--breakpoint-lg)) {
-    h1, .h1 {
+    h1, .h1{
       font-size: 6.75rem; /* 108px */
     }
   }
