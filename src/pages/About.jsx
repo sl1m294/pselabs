@@ -15,16 +15,15 @@ const About = () => {
           {/* text */}
           <div className="flex-1 pt-36 pb-14 lg:pt-0 lg:w-auto z-10 flex flex-col justify-center items-center lg:items-start ">
             <h1 className="h1">About Me</h1>
-            <p>
+            <p className="mb-12 max-w-sm">
               I’m a passionate photographer and filmmaker based in London,
               Ontario, dedicated to capturing authentic moments and telling
               compelling stories through visuals. With a keen eye for detail and
               a love for creativity, I specialize in portrait, lifestyle, and
-              cinematic photography, blending artistry with technical precision.
+              cinematic photography, blending artistry with technical precision.{" "}
+              <br />
             </p>
-            <br />
-            <br />
-            <p>Let's work together and create epic memories</p>
+
             <Link to={"/portfolio"} className="btn">
               view my work{" "}
             </Link>

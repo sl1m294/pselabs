@@ -1,6 +1,6 @@
 import React from "react";
 //image
-import HeroImg from "../img/home/woman3.png";
+import HeroImg from "../img/home/woman1.png";
 
 import { Link } from "react-router-dom";
 
@@ -24,7 +24,7 @@ const Home = () => {
             </Link>
           </div>
           {/* image */}
-          <div className="flex justify-end">
+          <div className="flex justify-center lg:justify-end">
             <div>
               <img
                 src={HeroImg}
