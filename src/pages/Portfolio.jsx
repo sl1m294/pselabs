@@ -1,6 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import { motion } from "framer-motion";
+
+import { cubicBezier } from "framer-motion";
+
 const portfolioImages = import.meta.glob("../img/portfolio/*.jpg", {
   eager: true,
   import: "default",
@@ -8,10 +12,19 @@ const portfolioImages = import.meta.glob("../img/portfolio/*.jpg", {
 });
 
 const Portfolio = () => {
+  //transition
+  const customEase = cubicBezier(0.6, 0.01, -0.05, 0.9);
+
   const imagesList = Object.values(portfolioImages);
 
   return (
-    <section className="section lg:pt-25 sm:pt-10">
+    <motion.section
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 1.4, ease: customEase }}
+      className="section lg:pt-25 sm:pt-10"
+    >
       <div className="portfolio-wrapper masonry-grid">
         {imagesList.map((imgUrl, idx) => (
           <div className="masonry-item" key={idx}>
@@ -33,7 +46,7 @@ const Portfolio = () => {
           View More
         </a>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

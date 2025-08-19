@@ -1,10 +1,21 @@
 import React from "react";
 import AboutImg from "../img/about/about.JPG";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+
+import { cubicBezier } from "framer-motion";
 
 const About = () => {
+  const customEase = cubicBezier(0.6, 0.01, -0.05, 0.9);
+
   return (
-    <section className="section">
+    <motion.section
+      initial={{ opacity: 0, y: "100%" }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: "100%" }}
+      transition={{ duration: 1.4, ease: customEase }}
+      className="section"
+    >
       <div className="container mx-auto h-full relative">
         {/* text & Image */}
         <div className=" flex flex-col lg:flex-row h-full items-center justify-center gap-x-24 text-center lg:text-left lg:pt-16">
@@ -13,7 +24,13 @@ const About = () => {
             <img src={AboutImg} alt="woman2" />
           </div>
           {/* text */}
-          <div className="flex-1 pt-36 pb-14 lg:pt-0 lg:w-auto z-10 flex flex-col justify-center items-center lg:items-start ">
+          <motion.div
+            initial={{ opacity: 0, y: "-80%" }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: "-80%" }}
+            transition={{ duration: 1.4, ease: customEase }}
+            className="flex-1 pt-36 pb-14 lg:pt-0 lg:w-auto z-10 flex flex-col justify-center items-center lg:items-start "
+          >
             <h1 className="h1">About Me</h1>
             <p className="mb-12 max-w-sm">
               I’m a passionate photographer and filmmaker based in London,
@@ -27,10 +44,10 @@ const About = () => {
             <Link to={"/portfolio"} className="btn">
               view my work{" "}
             </Link>
-          </div>
+          </motion.div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

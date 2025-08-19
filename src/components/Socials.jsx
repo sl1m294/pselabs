@@ -25,17 +25,18 @@ const Socials = () => {
           </a>
         </li>
         <li>
-          <a href="https://www.instagram.com/pselabs/" target="_blank">
+          <a href="https://x.com/" target="_blank">
             <FaX />
           </a>
         </li>
         <li>
-          <a href="https://www.instagram.com/pselabs/" target="_blank">
+          <a href="https://pin.it/7bPUH0Wz3" target="_blank">
             <FaPinterest />
           </a>
         </li>
+
         <li>
-          <a href="https://www.instagram.com/pselabs/" target="_blank">
+          <a href="https://www.youtube.com/@PSELab5" target="_blank">
             <FaYoutube />
           </a>
         </li>
