@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 // image import
 import Woman1 from "../img/contact/woman6.png";
 import { motion } from "framer-motion";
 import { cubicBezier } from "framer-motion";
 
+import { CursorContext } from "../context/CursorContext";
+
 const Contact = () => {
   const customEase = cubicBezier(0.6, 0.01, -0.05, 0.9);
+
+  const { mouseEnterHandler, mouseLeaveHandler } = useContext(CursorContext);
 
   return (
     <motion.section
@@ -26,7 +30,11 @@ const Contact = () => {
             className="hidden lg:flex bg-red-500 absolute bottom-0 right-0 top-72 -z-10"
           ></motion.div>
           {/* text and form */}
-          <div className="lg:flex-1 lg:pt-32 px-4">
+          <div
+            onMouseEnter={mouseEnterHandler}
+            onMouseLeave={mouseLeaveHandler}
+            className="lg:flex-1 lg:pt-32 px-4"
+          >
             <h1 className="text-[54px] md:text-[72px] lg:text-[108px] font-primary font-bold capitalize leading-[120%] tracking-[-0.05em] mb-2">
               Contact me
             </h1>
@@ -61,9 +69,17 @@ const Contact = () => {
             </form>
           </div>
           {/* image */}
-          <div className="sm:-mt-25 md:-mt-10 lg:-mt-47">
+          <motion.div
+            initial={{ opacity: 0, y: "100%" }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: "100%" }}
+            transition={{ duration: 1.5, ease: customEase }}
+            onMouseEnter={mouseEnterHandler}
+            onMouseLeave={mouseLeaveHandler}
+            className="sm:-mt-25 md:-mt-10 lg:-mt-47"
+          >
             <img src={Woman1} alt="photo of woman" />
-          </div>
+          </motion.div>
         </div>
       </div>
     </motion.section>

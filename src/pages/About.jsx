@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import AboutImg from "../img/about/about.JPG";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+
+import { CursorContext } from "../context/CursorContext";
 
 import { cubicBezier } from "framer-motion";
 
 const About = () => {
   const customEase = cubicBezier(0.6, 0.01, -0.05, 0.9);
+
+  const { mouseEnterHandler, mouseLeaveHandler } = useContext(CursorContext);
 
   return (
     <motion.section
@@ -16,7 +20,11 @@ const About = () => {
       transition={{ duration: 1.4, ease: customEase }}
       className="section"
     >
-      <div className="container mx-auto h-full relative">
+      <div
+        onMouseEnter={mouseEnterHandler}
+        onMouseLeave={mouseLeaveHandler}
+        className="container mx-auto h-full relative"
+      >
         {/* text & Image */}
         <div className=" flex flex-col lg:flex-row h-full items-center justify-center gap-x-24 text-center lg:text-left lg:pt-16">
           {/* image */}

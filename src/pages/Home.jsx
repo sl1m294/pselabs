@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 //image
 import HeroImg from "../img/home/woman1.png";
 
@@ -7,9 +7,11 @@ import { motion } from "framer-motion";
 
 // import { transition1 } from "../transitions";
 import { cubicBezier } from "framer-motion";
+import { CursorContext } from "../context/CursorContext";
 
 const Home = () => {
   const customEase = cubicBezier(0.6, 0.01, -0.05, 0.9);
+  const { mouseEnterHandler, mouseLeaveHandler } = useContext(CursorContext);
   return (
     <motion.section
       initial={{ opacity: 0 }}
@@ -27,6 +29,8 @@ const Home = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: "-50%" }}
             transition={{ duration: 1.4, ease: customEase }}
+            onMouseEnter={mouseEnterHandler}
+            onMouseLeave={mouseLeaveHandler}
             className="w-full pt-36 pb-14 lg:pt-0 lg:pb-0 md:pt-20 md:pb-8 lg:w-auto z-10 lg:absolute flex flex-col justify-center items-center lg:items-start"
           >
             <h1 className="text-[54px] md:text-[72px] lg:text-[108px] font-primary font-bold capitalize leading-[120%] tracking-[-0.05em] mb-2">
